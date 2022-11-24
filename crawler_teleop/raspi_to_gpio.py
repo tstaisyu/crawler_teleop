@@ -48,7 +48,7 @@ class SubscriberNode(Node):
         motor_l = self.joy_l
         time.sleep(0.1)
         if motor_r > 10:
-#            GPIO.output(ENABLE_r, GPIO.LOW)
+            GPIO.output(ENABLE_r, GPIO.LOW)
 #            GPIO.output(ENABLE_l, GPIO.LOW)
             p_r.ChangeDutyCycle(motor_l*5000)
 #            p_l.ChangeDutyCycle(motor_r)

@@ -10,6 +10,7 @@ R = 12
 L = 13
 ENABLE_r = 17
 ENABLE_l = 18
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(R, GPIO.OUT)
 GPIO.setup(L, GPIO.OUT)

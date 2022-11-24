@@ -19,7 +19,7 @@ GPIO.setup(ENABLE_l, GPIO.OUT)
 GPIO.output(ENABLE_r, GPIO.LOW)
 GPIO.output(ENABLE_l, GPIO.LOW)
 
-p_r = GPIO.PWM(R, 200000)
+p_r = GPIO.PWM(R, bottom)
 p_l = GPIO.PWM(L, bottom)
 
 p_r.start(0)
@@ -36,7 +36,6 @@ class SubscriberNode(Node):
         self.create_subscription(Int32MultiArray, "verocity", self.toGpio, 10)
 
     def onSubscribed(self, msg):
-#        self.get_logger().info("{0}".format(msg.data))
         self.r = msg.data[0]
         self.l = msg.data[1]
         print ("L: {0}, R: {1}".format(self.l, self.r))
@@ -47,11 +46,11 @@ class SubscriberNode(Node):
         motor_r = self.joy_r
         motor_l = self.joy_l
         time.sleep(0.1)
-        if motor_r > 10:
+        if motor_l > 10 and motor_r > 10:
             GPIO.output(ENABLE_r, GPIO.LOW)
-#            GPIO.output(ENABLE_l, GPIO.LOW)
-            p_r.ChangeDutyCycle(motor_l*5000)
-#            p_l.ChangeDutyCycle(motor_r)
+            GPIO.output(ENABLE_l, GPIO.LOW)
+            p_r.ChangeDutyCycle(motor_l)
+            p_l.ChangeDutyCycle(motor_r)
             print("go:", motor_l, motor_r)
             
         elif motor_l > 10 and motor_r < -10:

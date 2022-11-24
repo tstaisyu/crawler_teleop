@@ -50,7 +50,7 @@ class SubscriberNode(Node):
         if motor_r > 10:
 #            GPIO.output(ENABLE_r, GPIO.LOW)
 #            GPIO.output(ENABLE_l, GPIO.LOW)
-            p_r.ChangeDutyCycle(motor_l*50)
+            p_r.ChangeDutyCycle(motor_l*5000)
 #            p_l.ChangeDutyCycle(motor_r)
             print("go:", motor_l, motor_r)
             

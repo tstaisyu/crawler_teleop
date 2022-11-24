@@ -19,7 +19,7 @@ GPIO.setup(ENABLE_l, GPIO.OUT)
 GPIO.output(ENABLE_r, GPIO.LOW)
 GPIO.output(ENABLE_l, GPIO.LOW)
 
-p_r = GPIO.PWM(R, bottom)
+p_r = GPIO.PWM(R, 200000)
 p_l = GPIO.PWM(L, bottom)
 
 p_r.start(0)

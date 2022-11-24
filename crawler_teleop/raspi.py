@@ -8,14 +8,14 @@ class SubscriberNode(Node):
     def __init__(self):
         super().__init__("subscriber")
 
-        self.ser = serial.Serial(
-            port='/dev/tty0', # デバイス名 
-            baudrate=115200, # ポート番号
-            parity=serial.PARITY_NONE,
-            stopbits=serial.STOPBITS_ONE,
-            bytesize=serial.EIGHTBITS,
-            timeout=1
-        )
+#        self.ser = serial.Serial(
+#            port='/dev/tty0', # デバイス名 
+#            baudrate=115200, # ポート番号
+#            parity=serial.PARITY_NONE,
+#            stopbits=serial.STOPBITS_ONE,
+#            bytesize=serial.EIGHTBITS,
+#            timeout=1
+#        )
         time.sleep(0.1)
 
         self.direction = 0

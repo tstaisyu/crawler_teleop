@@ -46,40 +46,40 @@ class SubscriberNode(Node):
         motor_r = self.joy_r
         motor_l = self.joy_l
         time.sleep(0.1)
-            if motor_l > 0 and motor_r > 0:
-                GPIO.output(ENABLE_r, GPIO.LOW)
-                GPIO.output(ENABLE_l, GPIO.LOW)
-                p_r.ChangeDutyCycle(motor_l)
-                p_l.ChangeDutyCycle(motor_r)
-                print("go:", motor_l, motor_r)
+        if motor_l > 10 and motor_r > 10:
+            GPIO.output(ENABLE_r, GPIO.LOW)
+            GPIO.output(ENABLE_l, GPIO.LOW)
+            p_r.ChangeDutyCycle(motor_l)
+            p_l.ChangeDutyCycle(motor_r)
+            print("go:", motor_l, motor_r)
             
-            elif motor_l > 0 and motor_r < 0:
-                GPIO.output(ENABLE_r, GPIO.HIGH)
-                GPIO.output(ENABLE_l, GPIO.LOW)
-                p_r.ChangeDutyCycle(motor_l)
-                p_l.ChangeDutyCycle(-(motor_r))
-                print("turn right:", motor_l, motor_r)
+        elif motor_l > 10 and motor_r < -10:
+            GPIO.output(ENABLE_r, GPIO.HIGH)
+            GPIO.output(ENABLE_l, GPIO.LOW)
+            p_r.ChangeDutyCycle(motor_l)
+            p_l.ChangeDutyCycle(-(motor_r))
+            print("turn right:", motor_l, motor_r)
             
-            elif motor_l < 0 and motor_r > 0:
-                GPIO.output(ENABLE_r, GPIO.LOW)
-                GPIO.output(ENABLE_l, GPIO.HIGH)
-                p_r.ChangeDutyCycle(-(motor_l))
-                p_l.ChangeDutyCycle(motor_r)
-                print("turn left:", motor_l, motor_r)
+        elif motor_l < -10 and motor_r > 10:
+            GPIO.output(ENABLE_r, GPIO.LOW)
+            GPIO.output(ENABLE_l, GPIO.HIGH)
+            p_r.ChangeDutyCycle(-(motor_l))
+            p_l.ChangeDutyCycle(motor_r)
+            print("turn left:", motor_l, motor_r)
             
-            elif motor_l < 0 and motor_r < 0:
-                GPIO.output(ENABLE_r, GPIO.HIGH)
-                GPIO.output(ENABLE_l, GPIO.HIGH)
-                p_r.ChangeDutyCycle(-(motor_l))
-                p_l.ChangeDutyCycle(-(motor_r))
-                print("back:", motor_l, motor_r)
+        elif motor_l < -10 and motor_r < -10:
+            GPIO.output(ENABLE_r, GPIO.HIGH)
+            GPIO.output(ENABLE_l, GPIO.HIGH)
+            p_r.ChangeDutyCycle(-(motor_l))
+            p_l.ChangeDutyCycle(-(motor_r))
+            print("back:", motor_l, motor_r)
             
-            else:
-                print("stop:", motor_l, motor_r)
-                p_r.stop()
-                p_l.stop()
-                p_r.start(0)
-                p_l.start(0)
+        else:
+            print("stop:", motor_l, motor_r)
+            p_r.stop()
+            p_l.stop()
+            p_r.start(0)
+            p_l.start(0)
 
 
 

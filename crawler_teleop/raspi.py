@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int32, String
+from std_msgs.msg import Int32MultiArray
 import serial
 import time
 
@@ -19,14 +19,13 @@ class SubscriberNode(Node):
         time.sleep(0.1)
 
         self.direction = 0
-        self.create_subscription(String, "verocity", self.onSubscribed, 10)
+        self.create_subscription(Int32MultiArray, "verocity", self.onSubscribed, 10)
 
     def onSubscribed(self, msg):
-        self.get_logger().info("{0}".format(msg.data))
-        if self.direction != msg.data:
-            self.direction = msg.data
-
-            time.sleep(0.1)
+#        self.get_logger().info("{0}".format(msg.data))
+        self.r = msg.data[0]
+        self.l = msg.data[1]
+        print ("L: {0}, R: {1}".format(self.l, self.r))
 
 def main(args=None):
     rclpy.init(args=args)

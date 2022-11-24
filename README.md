@@ -6,12 +6,14 @@
 
 # 実行方法
 
-PC側：f310を実行  
+PC側：f310を実行
+```bash
 ros2 run crawler_teleop f310
-
-Raspberry Pi側：raspi_to_gpioを実行  
+```
+Raspberry Pi側：raspi_to_gpioを実行
+```bash
 ros2 run crawler_teleop raspi_to_gpio
-
+```
 
 # 参考
 

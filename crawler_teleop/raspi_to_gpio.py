@@ -46,10 +46,10 @@ class SubscriberNode(Node):
         motor_r = self.joy_r
         motor_l = self.joy_l
         time.sleep(0.1)
-        if motor_l > 10 and motor_r > 10:
+        if motor_r > 10:
             GPIO.output(ENABLE_r, GPIO.LOW)
             GPIO.output(ENABLE_l, GPIO.LOW)
-            p_r.ChangeDutyCycle(motor_l)
+            p_r.ChangeDutyCycle(motor_r)
             p_l.ChangeDutyCycle(motor_r)
             print("go:", motor_l, motor_r)
             
@@ -67,10 +67,10 @@ class SubscriberNode(Node):
             p_l.ChangeDutyCycle(motor_r)
             print("turn left:", motor_l, motor_r)
             
-        elif motor_l < -10 and motor_r < -10:
+        elif motor_r < -10:
             GPIO.output(ENABLE_r, GPIO.HIGH)
             GPIO.output(ENABLE_l, GPIO.HIGH)
-            p_r.ChangeDutyCycle(-(motor_l))
+            p_r.ChangeDutyCycle(-(motor_r))
             p_l.ChangeDutyCycle(-(motor_r))
             print("back:", motor_l, motor_r)
             

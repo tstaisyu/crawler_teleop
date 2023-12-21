@@ -12,7 +12,7 @@ class PublisherNode(Node):
       
         self.msg = Int32MultiArray()
        
-        self.pub = self.create_publisher(Int32MultiArray, "verocity", 0)
+        self.pub = self.create_publisher(Int32MultiArray, "velocity", 0)
     
         self.tmr = self.create_timer(0.1, self.callback)
 

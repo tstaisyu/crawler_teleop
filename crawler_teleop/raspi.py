@@ -19,7 +19,7 @@ class SubscriberNode(Node):
         time.sleep(0.1)
 
         self.direction = 0
-        self.create_subscription(Int32MultiArray, "verocity", self.onSubscribed, 10)
+        self.create_subscription(Int32MultiArray, "velocity", self.onSubscribed, 10)
 
     def onSubscribed(self, msg):
 #        self.get_logger().info("{0}".format(msg.data))

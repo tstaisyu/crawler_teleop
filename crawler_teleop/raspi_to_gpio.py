@@ -33,7 +33,7 @@ class SubscriberNode(Node):
 
 
         self.verocity = None
-        self.create_subscription(Int32MultiArray, "verocity", self.toGpio, 10)
+        self.create_subscription(Int32MultiArray, "velocity", self.toGpio, 10)
 
     def onSubscribed(self, msg):
         self.r = msg.data[0]

@@ -6,12 +6,12 @@ import serial
 import time
 
 bottom = 50
-R = 12
-L = 13
-ENABLE_r = 17
-ENABLE_l = 18
+R = 15
+L = 18
+ENABLE_r = 22
+ENABLE_l = 13
 GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(R, GPIO.OUT)
 GPIO.setup(L, GPIO.OUT)
 GPIO.setup(ENABLE_r, GPIO.OUT)
